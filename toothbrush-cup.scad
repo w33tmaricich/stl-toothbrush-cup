@@ -5,7 +5,7 @@ $fn=50;
 
 // Cup values.
 cup_diameter = 62;
-cup_height = 150;
+cup_height = 90;
 cup_differential = 6;
 cup_thickness = 6;
 cup_hole_diameter = 3;
@@ -23,14 +23,14 @@ module toothbrush_cup() {
     difference() {
         // Outer cup
         cylinder(cup_height,
-                 cup_diameter-cup_differential,
-                 cup_diameter+cup_differential,
+                 d1=cup_diameter-cup_differential,
+                 d2=cup_diameter+cup_differential,
                  true);
          
         // Cut-out
         translate([0,0,cup_thickness]) cylinder(cup_height,
-                cup_diameter-cup_differential-cup_thickness,
-                cup_diameter+cup_differential-cup_thickness,
+                d1=cup_diameter-cup_differential-cup_thickness,
+                d2=cup_diameter+cup_differential-cup_thickness,
                 true);
         
         translate([0,0,10]) cylinder(cup_height,
@@ -106,4 +106,4 @@ module toothbrush_lid() {
 }
 
 //toothbrush_lid();
-//toothbrush_cup();
+toothbrush_cup();
