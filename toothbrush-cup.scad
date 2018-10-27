@@ -46,12 +46,12 @@ module solid_lid() {
     difference() {
         // Outer lid
         cylinder(lid_height,
-                 d=cup_diameter+cup_differential,
+                 d=cup_diameter+cup_differential+cup_thickness,
                  true);
          
         // Cut-out
         translate([0,0,-cup_thickness]) cylinder(lid_height,
-                d=cup_diameter+cup_differential-cup_thickness,
+                d=cup_diameter+cup_thickness,
                 true);
     }
 }
@@ -105,5 +105,6 @@ module toothbrush_lid() {
     }
 }
 
-//toothbrush_lid();
-toothbrush_cup();
+toothbrush_lid();
+//translate([0,0,cup_height+5]) toothbrush_lid();
+//toothbrush_cup();
